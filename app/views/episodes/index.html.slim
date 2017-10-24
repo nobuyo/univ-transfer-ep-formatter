@@ -1,0 +1,59 @@
+p#notice
+  = notice
+h1
+  | Episodes
+table
+  thead
+    tr
+      th
+        | Name
+      th
+        | Dept
+      th
+        | Activities
+      th
+        | Destination
+      th
+        | Record 1st
+      th
+        | Record 2nd
+      th
+        | Record 3rd
+      th
+        | Record 4th
+      th
+        | Advise
+      th
+        | Comment
+      th[colspan="3"]
+  tbody
+    - @episodes.each do |episode|
+      tr
+        td
+          = episode.name
+        td
+          = episode.dept
+        td
+          = episode.activities
+        td
+          = episode.destination
+        td
+          = episode.record_1st
+        td
+          = episode.record_2nd
+        td
+          = episode.record_3rd
+        td
+          = episode.record_4th
+        td
+          = episode.advise
+        td
+          = episode.comment
+        td
+          = link_to 'Show', episode
+        td
+          = link_to 'Edit', edit_episode_path(episode)
+        td
+          = link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Episode', new_episode_path

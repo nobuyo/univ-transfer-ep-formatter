@@ -1,0 +1,18 @@
+= form_with(model: subject, local: true) do |form|
+  - if subject.errors.any?
+    #error_explanation
+      h2
+        = pluralize(subject.errors.count, "error")
+        |  prohibited this subject from being saved:
+      ul
+        - subject.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :title
+    = form.text_field :title, id: :subject_title
+  .field
+    = form.label :study_method
+    = form.text_area :study_method, id: :subject_study_method
+  .actions
+    = form.submit

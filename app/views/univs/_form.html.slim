@@ -1,0 +1,30 @@
+= form_with(model: univ, local: true) do |form|
+  - if univ.errors.any?
+    #error_explanation
+      h2
+        = pluralize(univ.errors.count, "error")
+        |  prohibited this univ from being saved:
+      ul
+        - univ.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :name
+    = form.text_field :name, id: :univ_name
+  .field
+    = form.label :dept
+    = form.text_field :dept, id: :univ_dept
+  .field
+    = form.label :admission_method
+    = form.text_field :admission_method, id: :univ_admission_method
+  .field
+    = form.label :result
+    = form.text_field :result, id: :univ_result
+  .field
+    = form.label :exam_info
+    = form.text_area :exam_info, id: :univ_exam_info
+  .field
+    = form.label :interview_info
+    = form.text_area :interview_info, id: :univ_interview_info
+  .actions
+    = form.submit

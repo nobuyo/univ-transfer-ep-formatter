@@ -69,6 +69,39 @@ class EpisodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def episode_params
-      params.require(:episode).permit(:name, :dept, :activities, :destination, :record_1st, :record_2nd, :record_3rd, :record_4th, :advise, :comment)
+      params.require(:episode).permit(
+        :name,
+        :dept,
+        :activities,
+        :destination,
+        :record_1st,
+        :record_2nd,
+        :record_3rd,
+        :record_4th,
+        :advise,
+        :comment,
+        univs_attributes: [
+          :name,
+          :dept,
+          :admission_method,
+          :result,
+          :exam_info,
+          :interview_info,
+          subjects_attributes: [
+            :title,
+            :study_method,
+            books_attributes: [
+              :title,
+              :press,
+              :comment
+            ]
+          ]
+        ],
+        timeline_items_attributes: [
+          :grade,
+          :period,
+          :studying_time,
+          :content
+        ])
     end
 end

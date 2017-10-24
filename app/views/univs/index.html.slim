@@ -1,0 +1,43 @@
+p#notice
+  = notice
+h1
+  | Univs
+table
+  thead
+    tr
+      th
+        | Name
+      th
+        | Dept
+      th
+        | Admission method
+      th
+        | Result
+      th
+        | Exam info
+      th
+        | Interview info
+      th[colspan="3"]
+  tbody
+    - @univs.each do |univ|
+      tr
+        td
+          = univ.name
+        td
+          = univ.dept
+        td
+          = univ.admission_method
+        td
+          = univ.result
+        td
+          = univ.exam_info
+        td
+          = univ.interview_info
+        td
+          = link_to 'Show', univ
+        td
+          = link_to 'Edit', edit_univ_path(univ)
+        td
+          = link_to 'Destroy', univ, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Univ', new_univ_path

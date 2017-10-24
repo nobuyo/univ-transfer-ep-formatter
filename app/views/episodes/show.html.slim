@@ -1,0 +1,45 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @episode.name
+p
+  strong
+    | Dept:
+  = @episode.dept
+p
+  strong
+    | Activities:
+  = @episode.activities
+p
+  strong
+    | Destination:
+  = @episode.destination
+p
+  strong
+    | Record 1st:
+  = @episode.record_1st
+p
+  strong
+    | Record 2nd:
+  = @episode.record_2nd
+p
+  strong
+    | Record 3rd:
+  = @episode.record_3rd
+p
+  strong
+    | Record 4th:
+  = @episode.record_4th
+p
+  strong
+    | Advise:
+  = @episode.advise
+p
+  strong
+    | Comment:
+  = @episode.comment
+= link_to 'Edit', edit_episode_path(@episode)
+|  | 
+= link_to 'Back', episodes_path

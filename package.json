@@ -1,5 +1,7 @@
 {
   "name": "univ-transfer-ep-fotmartter",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
 }

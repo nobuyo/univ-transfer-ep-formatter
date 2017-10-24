@@ -1,3 +1,3 @@
 class Timeline < ApplicationRecord
-  has_many :timeline_items
+  has_many :timelineitems
 end

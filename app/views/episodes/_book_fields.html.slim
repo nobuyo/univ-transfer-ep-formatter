@@ -1,0 +1,13 @@
+.nested-fields.slide-right
+  .row
+    .four.columns
+      = f.label '書籍名'
+      = f.text_field :title, id: :book_title
+    .four.columns
+      = f.label '出版社'
+      = f.text_field :press, id: :book_press
+    .three.columns
+      = link_to_remove_association "この参考書を削除", f, class: 'button space-tiny'
+  .form
+    = f.label 'コメント'
+    = f.text_field :comment, id: :book_comment, class: 'u-full-width', placeholder: '例) 豊富な例題で取り掛かりやすいのでオススメ！'

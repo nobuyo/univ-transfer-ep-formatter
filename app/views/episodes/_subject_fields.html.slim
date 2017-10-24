@@ -1,0 +1,21 @@
+.nested-fields.slide-right
+  p.large 科目ごとの情報
+  .row
+    .three.columns
+      = f.label '科目名'
+      = f.text_field :title, id: :subject_title
+    .three.columns
+      = link_to_remove_association "この科目を削除", f, class: 'button space-tiny'
+  .form
+    = f.label '勉強方法'
+    = f.text_area :study_method, id: :subject_study_method, class: 'u-full-width'
+
+  p.medium 使用した参考書
+  #books
+    = f.fields_for :books do |book|
+      = render 'book_fields', f: book
+    .links
+      = link_to_add_association "参考書を追加", f, :books, class: 'button'
+
+
+

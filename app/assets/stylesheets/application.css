@@ -10,6 +10,30 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
+ *= require normalize
+ *= require skeleton
+ *= require skeleton-alerts
  */
+
+.space-tiny {
+  margin-top: 2.6em;
+}
+
+
+.space-sm {
+  margin-top: 10%;
+}
+
+.slide-right {
+  margin-left: 5%;
+}
+
+.large {
+  font-size: 1.38em;
+}
+
+.medium {
+  font-size: 1.18em;
+}

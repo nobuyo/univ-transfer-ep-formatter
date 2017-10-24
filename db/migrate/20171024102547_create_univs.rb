@@ -1,6 +1,7 @@
 class CreateUnivs < ActiveRecord::Migration[5.1]
   def change
     create_table :univs do |t|
+      t.integer :episode_id
       t.string :name
       t.string :dept
       t.string :admission_method

@@ -1,0 +1,29 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @univ.name
+p
+  strong
+    | Dept:
+  = @univ.dept
+p
+  strong
+    | Admission method:
+  = @univ.admission_method
+p
+  strong
+    | Result:
+  = @univ.result
+p
+  strong
+    | Exam info:
+  = @univ.exam_info
+p
+  strong
+    | Interview info:
+  = @univ.interview_info
+= link_to 'Edit', edit_univ_path(@univ)
+|  | 
+= link_to 'Back', univs_path

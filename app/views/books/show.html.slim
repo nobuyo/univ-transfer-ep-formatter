@@ -1,0 +1,17 @@
+p#notice
+  = notice
+p
+  strong
+    | Title:
+  = @book.title
+p
+  strong
+    | Press:
+  = @book.press
+p
+  strong
+    | Comment:
+  = @book.comment
+= link_to 'Edit', edit_book_path(@book)
+|  | 
+= link_to 'Back', books_path
