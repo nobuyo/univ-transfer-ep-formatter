@@ -7,6 +7,11 @@ class EpisodesController < ApplicationController
     @episodes = Episode.all
   end
 
+  def dump
+    @episodes = Episode.all
+    render template: 'episodes/dump.tex.erb'
+  end
+
   # GET /episodes/1
   # GET /episodes/1.json
   def show
@@ -97,7 +102,7 @@ class EpisodesController < ApplicationController
             ]
           ]
         ],
-        timeline_items_attributes: [
+        timelineitems_attributes: [
           :grade,
           :period,
           :studying_time,

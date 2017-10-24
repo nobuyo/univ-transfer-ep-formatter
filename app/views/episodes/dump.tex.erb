@@ -1,0 +1,114 @@
+<% @episodes.each do |ep| %>
+  \section{<%= ep.destination %>}<br>
+  <br>
+  \vspace{-0.2cm}<br>
+  \hrule height 1pt<br>
+  \vspace{0.4cm}<br>
+  <br>
+  \begin{tcolorbox}[colback=white, title=体験談投稿者情報]<br>
+  \large<br>
+  \begin{tabular}{p{2cm}p{10cm}}<br>
+  \hfil 氏　　名 \hfil & <%= ep.name %> \\<br>
+  \hfil 学　　科 \hfil & <%= ep.dept %>\\<br>
+  \hfil 課外活動 \hfil & <%= ep.activities %>\\<br>
+  \hfil 進 学 先 \hfil & <%= ep.destination %> \\<br>
+  \end{tabular}<br>
+  \end{tcolorbox}<br>
+  <br>
+  \begin{tcolorbox}[colback=white,title=学内席次]<br>
+  \large<br>
+  \begin{tabular}{p{2cm}p{4cm}}<br>
+  \hfil 1年次 \hfil & <%= ep.record_1st %> \\<br>
+  \hfil 2年次 \hfil & <%= ep.record_2nd %> \\<br>
+  \hfil 3年次 \hfil & <%= ep.record_3rd %> \\<br>
+  \hfil 4年次 \hfil & <%= ep.record_4th %> \\<br>
+  \end{tabular}<br>
+  \end{tcolorbox}<br>
+  <br>
+  <% ep.univs.each_with_index do |univ, n| %>
+  % --- univ ---<br>
+  \subsection{<%= "受験大学#{n}" %> univ.name}<br>
+  <br>
+  \begin{tcolorbox}[colback=white, title=受験情報]<br>
+  \large<br>
+  \begin{tabular}{p{2cm}p{4cm}}<br>
+  \hfil 受験方法 \hfil & <%= univ.admission_method %>\\<br>
+  \hfil 受験結果 \hfil & <%= univ.result %> \\<br>
+  \hfil 試験科目 \hfil & <%= univ.subjects.map{ |s| s.title }.join(', ') %>\\<br>
+  \end{tabular}<br>
+  \end{tcolorbox}<br>
+  <br>
+  \vspace{-0.4cm}<br>
+  \subsubsection{試験科目}<br>
+  <br>
+  \begin{description}<br>
+  % --- subject ---<br>
+  <% univ.subjects.each do |subject| %>
+  \item[　{\Large $\triangleright$}<%= subject.title %>]\mbox{}\\<br>
+  <br>
+  \vspace{-0.4cm}<br>
+  <br>
+  \begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=勉強法]<br>
+  \large<br>
+  <%= subject.study_method %><br>
+  \end{tcolorbox}<br>
+  <br>
+  \begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=参考書]<br>
+  \large<br>
+  \begin{tabular}{p{5cm}p{8.5cm}}<br>
+  \hfil 書名(出版社) \hfil & コメント\\<br>
+  \end{tabular}<br>
+  <% subject.books.each do |book| %>
+  \vspace{0.4cm}<br>
+  \dotfill<br>
+  \vspace{0.4cm}<br>
+  <br>
+  \large<br>
+  \begin{tabular}{p{5cm}p{8.5cm}}<br>
+  \hfil <%= "#{book.title}(#{book.press})" %> \hfil & <%= book.comment %>\\<br>
+  \end{tabular}<br>
+  <br>
+  <% end %>
+  \end{tcolorbox}<br>
+  <br>
+  <% end %>
+  \end{description}<br>
+  <br>
+  <% end %>
+  % --- timeline ---<br>
+  \subsection{勉強の過程}<br>
+  <br>
+  \begin{tcolorbox}[colback=white,title=勉強年表]<br>
+  \large<br>
+  \begin{tabular}{p{2.5cm}p{2cm}p{8.5cm}}<br>
+  \hfil 時期 \hfil& 時間$\rm /$日 & 内容\\<br>
+  \end{tabular}<br>
+  <br>
+  <% ep.timelineitems.each_with_index do |item, idx| %>
+  \vspace{0.4cm}<br>
+  \hrule height 0.6pt<br>
+  \vspace{0.4cm}<br>
+  <br>
+  \large<br>
+  \begin{tabular}{p{2.5cm}p{2cm}p{8.5cm}}<br>
+  \hfil <%= "#{item.grade}年#{item.period}" %> \hfil& <%= item.studying_time %> & <%= item.content %>\\<br>
+  \end{tabular}<br>
+  <% end %>
+  <br>
+  \end{tcolorbox}<br>
+  <br>
+  \subsection{アドバイス・ひとこと}<br>
+  <br>
+  \begin{tcolorbox}[colback=white,title=後輩にアドバイス]<br>
+  \large<br>
+  <%= ep.advise %><br>
+  \end{tcolorbox}<br>
+  <br>
+  \begin{tcolorbox}[colback=white,title=最後にひとこと]<br>
+  \large<br>
+  <%= ep.comment %><br>
+  \end{tcolorbox}<br>
+  <br>
+  \clearpage<br>
+<% end %>
+
