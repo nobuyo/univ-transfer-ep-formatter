@@ -68,10 +68,10 @@
   h3 アドバイス・ひとこと
   p 上記で書ききれなかったノウハウなどを自由にお書きください。
   .form
-    = f.label :advise
+    = f.label 'アドバイス'
     = f.text_area :advise, id: :episode_advise, class: 'u-full-width', placeholder: '後輩へのアドバイスを記入してください'
   .form
-    = f.label :comment
+    = f.label '最後にひとこと'
     = f.text_area :comment, id: :episode_comment, class: 'u-full-width', placeholder: '全体を通してひとこと(任意)'
 
   .actions
