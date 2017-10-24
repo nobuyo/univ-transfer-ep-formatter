@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  dept: MyString
+  admission_method: MyString
+  result: MyString
+  exam_info: MyText
+  interview_info: MyText
+
+two:
+  name: MyString
+  dept: MyString
+  admission_method: MyString
+  result: MyString
+  exam_info: MyText
+  interview_info: MyText

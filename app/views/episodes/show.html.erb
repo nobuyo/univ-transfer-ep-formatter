@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @episode.name %>
+</p>
+
+<p>
+  <strong>Dept:</strong>
+  <%= @episode.dept %>
+</p>
+
+<p>
+  <strong>Activities:</strong>
+  <%= @episode.activities %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @episode.destination %>
+</p>
+
+<p>
+  <strong>Record 1st:</strong>
+  <%= @episode.record_1st %>
+</p>
+
+<p>
+  <strong>Record 2nd:</strong>
+  <%= @episode.record_2nd %>
+</p>
+
+<p>
+  <strong>Record 3rd:</strong>
+  <%= @episode.record_3rd %>
+</p>
+
+<p>
+  <strong>Record 4th:</strong>
+  <%= @episode.record_4th %>
+</p>
+
+<p>
+  <strong>Advise:</strong>
+  <%= @episode.advise %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @episode.comment %>
+</p>
+
+<%= link_to 'Edit', edit_episode_path(@episode) %> |
+<%= link_to 'Back', episodes_path %>

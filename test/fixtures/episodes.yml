@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  dept: MyString
+  activities: MyString
+  destination: MyString
+  record_1st: MyString
+  record_2nd: MyString
+  record_3rd: MyString
+  record_4th: MyString
+  advise: MyText
+  comment: MyText
+
+two:
+  name: MyString
+  dept: MyString
+  activities: MyString
+  destination: MyString
+  record_1st: MyString
+  record_2nd: MyString
+  record_3rd: MyString
+  record_4th: MyString
+  advise: MyText
+  comment: MyText

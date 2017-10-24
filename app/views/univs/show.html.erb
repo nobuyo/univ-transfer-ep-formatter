@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @univ.name %>
+</p>
+
+<p>
+  <strong>Dept:</strong>
+  <%= @univ.dept %>
+</p>
+
+<p>
+  <strong>Admission method:</strong>
+  <%= @univ.admission_method %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @univ.result %>
+</p>
+
+<p>
+  <strong>Exam info:</strong>
+  <%= @univ.exam_info %>
+</p>
+
+<p>
+  <strong>Interview info:</strong>
+  <%= @univ.interview_info %>
+</p>
+
+<%= link_to 'Edit', edit_univ_path(@univ) %> |
+<%= link_to 'Back', univs_path %>
