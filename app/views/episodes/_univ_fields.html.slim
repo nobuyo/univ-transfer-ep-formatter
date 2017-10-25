@@ -12,10 +12,10 @@
       = link_to_remove_association "この大学を削除", f, class: 'button space-tiny'
 
   .row
-    .three.columns
+    .four.columns
       = f.label '選抜方法'
       = f.select :admission_method, options_for_select([['学力', '学力'], ['推薦', '推薦']]), { prompt: '選択してください' }, { class: 'u-full-width', required: true }
-    .three.columns
+    .four.columns
       = f.label '合否'
       = f.select :result, options_for_select([['合格', '合格'], ['不合格', '不合格'], ['未受験', '未受験']]), { prompt: '選択してください' }, { class: 'u-full-width', required: true }
 
