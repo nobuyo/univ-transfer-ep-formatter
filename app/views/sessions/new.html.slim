@@ -1,0 +1,10 @@
+.space-sm
+= form_for(:session, url: login_path) do |f|
+  .row
+      = f.label 'ユーザ名'
+      = f.text_field :name
+  .row
+      = f.label 'パスワード'
+      = f.password_field :password
+  .row
+      = f.submit "ログイン", class: "button-primary"

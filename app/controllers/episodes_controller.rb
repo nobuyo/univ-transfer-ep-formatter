@@ -1,4 +1,5 @@
 class EpisodesController < ApplicationController
+  before_action :logged_in_admin, only: [:index, :show, :update, :destroy, :dump]
   before_action :set_episode, only: [:show, :edit, :update, :destroy]
 
   # GET /episodes
@@ -8,8 +9,9 @@ class EpisodesController < ApplicationController
   end
 
   def dump
-    @episodes = Episode.all
-    render template: 'episodes/dump.tex.erb'
+    # ids = params[:target].inject(&:to_i)
+    @episodes = Episode.where(id: params[:ep_ids])
+    send_data render_to_string template: 'episodes/dump.tex.erb', filename: "ep-dump-#{Time.now.to_date.to_s}.tex"
   end
 
   # GET /episodes/1
@@ -72,6 +74,12 @@ class EpisodesController < ApplicationController
       @episode = Episode.find(params[:id])
     end
 
+    def dump_params
+      params.require(:episode).permit(
+        target: []
+      )
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def episode_params
       params.require(:episode).permit(
@@ -86,6 +94,7 @@ class EpisodesController < ApplicationController
         :advise,
         :comment,
         univs_attributes: [
+          :id,
           :name,
           :dept,
           :admission_method,
@@ -93,9 +102,11 @@ class EpisodesController < ApplicationController
           :exam_info,
           :interview_info,
           subjects_attributes: [
+            :id,
             :title,
             :study_method,
             books_attributes: [
+              :id,
               :title,
               :press,
               :comment
@@ -103,6 +114,7 @@ class EpisodesController < ApplicationController
           ]
         ],
         timelineitems_attributes: [
+          :id,
           :grade,
           :period,
           :studying_time,

@@ -1,59 +1,88 @@
 p#notice
   = notice
-h1
-  | Episodes
-table
+.row
+  h1.six.columns
+    | Episodes
+  .three.columns.space-tiny
+  = link_to '新規投稿', new_episode_path, class: 'button'
+
+.allCheck
+  .row
+    .one.column
+      input#allCheck01 type="checkbox"
+    label 全選択・全解除
+
+table.u-full-width
   thead
     tr
       th
-        | Name
+        | 出力
       th
-        | Dept
+        | 氏名
       th
-        | Activities
+        | 所属学科
       th
-        | Destination
+        | 課外活動
       th
-        | Record 1st
+        | 進学先
+      / th
+      /   | Record 1st
+      / th
+      /   | Record 2nd
+      / th
+      /   | Record 3rd
+      / th
+      /   | Record 4th
+      / th
+      /   | Advise
+      / th
+      /   | Comment
       th
-        | Record 2nd
-      th
-        | Record 3rd
-      th
-        | Record 4th
-      th
-        | Advise
-      th
-        | Comment
+        | 受験大学
       th[colspan="3"]
   tbody
-    - @episodes.each do |episode|
-      tr
-        td
-          = episode.name
-        td
-          = episode.dept
-        td
-          = episode.activities
-        td
-          = episode.destination
-        td
-          = episode.record_1st
-        td
-          = episode.record_2nd
-        td
-          = episode.record_3rd
-        td
-          = episode.record_4th
-        td
-          = episode.advise
-        td
-          = episode.comment
-        td
-          = link_to 'Show', episode
-        td
-          = link_to 'Edit', edit_episode_path(episode)
-        td
-          = link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Episode', new_episode_path
+    = form_tag 'episodes/dump.tex', method: :get do
+      - @episodes.each do |episode|
+        tr
+          td
+            = check_box_tag 'ep_ids[]', episode.id, false, class: 'cb'
+          td
+            = episode.name
+          td
+            = episode.dept
+          td
+            = episode.activities
+          td
+            = episode.destination
+          / td
+          /   = episode.record_1st
+          / td
+          /   = episode.record_2nd
+          / td
+          /   = episode.record_3rd
+          / td
+          /   = episode.record_4th
+          / td
+          /   = episode.advise
+          / td
+          /   = episode.comment
+          td
+            = episode.univs.map{ |u| u.name }.join(', ')
+          td
+            = link_to '詳細', episode
+          td
+            = link_to '編集', edit_episode_path(episode)
+          td
+            = link_to '削除', episode, method: :delete, data: { confirm: 'Are you sure?' }
+      = submit_tag('tex出力')
+
+
+javascript:
+  $('.allCheck input,.allCheck label').click(function() {
+    var items = $('.cb');
+    if($(this).is(':checked')) { 
+        $(items).prop('checked', true);
+    } else { 
+        $(items).prop('checked', false);
+    }
+  });

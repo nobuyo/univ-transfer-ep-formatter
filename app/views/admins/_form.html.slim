@@ -1,0 +1,21 @@
+= form_with(model: admin, local: true) do |form|
+  - if admin.errors.any?
+    #error_explanation
+      h2
+        = pluralize(admin.errors.count, "error")
+        |  prohibited this admin from being saved:
+      ul
+        - admin.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :name
+    = form.text_field :name, id: :admin_name
+  .field
+    = form.label :email
+    = form.text_field :email, id: :admin_email
+  .field
+    = form.label :password_digest
+    = form.text_field :password_digest, id: :admin_password_digest
+  .actions
+    = form.submit

@@ -42,3 +42,5 @@
           content: "鼻をほじる"
         ])
 end
+
+Admin.create(name: "admin", email: "admin@admin.com", password: "password", password_confirmation: "password")

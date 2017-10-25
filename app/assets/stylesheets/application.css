@@ -37,3 +37,7 @@
 .medium {
   font-size: 1.18em;
 }
+
+.trim-bottom {
+  margin-bottom: -4em;
+}
