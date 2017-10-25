@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # resources :books
   # resources :subjects
   # resources :univs
-  resources :episodes do
+  resources :episodes, only: [:new, :create] do
     collection do
       get 'dump'
     end

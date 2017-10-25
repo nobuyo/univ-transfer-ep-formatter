@@ -3,15 +3,15 @@
   .row
     .three.columns
       = f.label '学年'
-      = f.text_field :grade, id: :timeline_item_grade, placeholder: '4'
+      = f.text_field :grade, id: :timeline_item_grade, placeholder: '4', required: true
     .three.columns
       = f.label '時期'
-      = f.text_field :period, id: :timeline_item_period, placeholder: '3月'
+      = f.text_field :period, id: :timeline_item_period, placeholder: '3月', required: true
     .three.columns
       = f.label '勉強時間/日'
-      = f.text_field :studying_time, id: :timeline_item_studying_time, placeholder: '0〜0.5h'
+      = f.text_field :studying_time, id: :timeline_item_studying_time, placeholder: '0〜0.5h', required: true
     .three.columns
       = link_to_remove_association "このアイテムを削除", f, class: 'button space-tiny'
   .form
       = f.label '内容'
-      = f.text_field :content, id: :timeline_item_content, class: 'u-full-width', placeholder: '教科書を眺めては閉じる'
+      = f.text_field :content, id: :timeline_item_content, class: 'u-full-width', placeholder: '教科書を眺めては閉じる', required: true

@@ -3,12 +3,12 @@
   .row
     .three.columns
       = f.label '科目名'
-      = f.text_field :title, id: :subject_title
+      = f.text_field :title, id: :subject_title, required: true
     .three.columns
       = link_to_remove_association "この科目を削除", f, class: 'button space-tiny'
   .form
     = f.label '勉強方法'
-    = f.text_area :study_method, id: :subject_study_method, class: 'u-full-width'
+    = f.text_area :study_method, id: :subject_study_method, class: 'u-full-width', required: true
 
   p.medium 使用した参考書
   #books

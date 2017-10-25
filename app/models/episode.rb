@@ -5,4 +5,8 @@ class Episode < ApplicationRecord
 
   accepts_nested_attributes_for :univs
   accepts_nested_attributes_for :timelineitems
+
+  # validates :name, presence: { message: '名前は必須項目です' }
+  # validates :dept, presence: true
+
 end
