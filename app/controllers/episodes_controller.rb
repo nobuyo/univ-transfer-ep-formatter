@@ -11,7 +11,9 @@ class EpisodesController < ApplicationController
   def dump
     # ids = params[:target].inject(&:to_i)
     @episodes = Episode.where(id: params[:ep_ids])
-    send_data render_to_string template: 'episodes/dump.tex.erb', filename: "ep-dump-#{Time.now.to_date.to_s}.tex"
+    output = render_to_string(template: 'episodes/dump.tex.erb').gsub!(/^<.*?>$/, '')
+
+    send_data output, filename: "ep-dump-#{Time.now.to_date.to_s}.tex"
   end
 
   # GET /episodes/1
