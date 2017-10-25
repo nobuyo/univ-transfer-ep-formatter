@@ -105,12 +105,10 @@
 <%= ep.advise %>
 \end{tcolorbox}
 
-<% if ep.comment.present? %>
-  \begin{tcolorbox}[colback=white,title=最後にひとこと]
-  \large
-  <%= ep.comment %>
-  \end{tcolorbox}
-<% end %>
+\begin{tcolorbox}[colback=white,title=最後にひとこと]
+\large
+<%= ep.comment %>
+\end{tcolorbox}
 
 \clearpage
 <% end %>

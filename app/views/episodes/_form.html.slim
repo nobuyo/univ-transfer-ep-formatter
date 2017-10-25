@@ -77,7 +77,7 @@
     = f.text_area :advise, id: :episode_advise, class: 'u-full-width', placeholder: '後輩へのアドバイスを記入してください', required: true
   .form
     = f.label '最後にひとこと'
-    = f.text_area :comment, id: :episode_comment, class: 'u-full-width', placeholder: '全体を通してひとこと(任意)'
+    = f.text_area :comment, id: :episode_comment, class: 'u-full-width', placeholder: '全体を通してひとこと', required: true
 
   .actions
     = f.submit '登録する', class: 'button-primary'
