@@ -2,10 +2,10 @@
   .row
     .four.columns
       = f.label '書籍名'
-      = f.text_field :title, id: :book_title, required: true
+      = f.text_field :title, id: :book_title, required: true, placeholder: '例) 例題演習 幾何'
     .four.columns
       = f.label '出版社'
-      = f.text_field :press, id: :book_press
+      = f.text_field :press, id: :book_press, placeholder: '例) マセキ出版'
     .three.columns
       = link_to_remove_association "この参考書を削除", f, class: 'button space-tiny'
   .form

@@ -3,12 +3,12 @@
   .row
     .three.columns
       = f.label '科目名'
-      = f.text_field :title, id: :subject_title, required: true
+      = f.text_field :title, id: :subject_title, required: true, placeholder: '例) 微分・積分'
     .three.columns
       = link_to_remove_association "この科目を削除", f, class: 'button space-tiny'
   .form
     = f.label '勉強方法'
-    = f.text_area :study_method, id: :subject_study_method, class: 'u-full-width', required: true
+    = f.text_area :study_method, id: :subject_study_method, class: 'u-full-width', required: true, placeholder: '例) 基本公式をすべて証明できるまで教科書を周回しました'
 
   p.medium 使用した参考書
   #books
