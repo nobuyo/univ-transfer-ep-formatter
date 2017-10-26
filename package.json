@@ -2,7 +2,6 @@
   "name": "univ-transfer-ep-fotmartter",
   "private": true,
   "dependencies": {
-    "jquery": "^3.2.1",
-    "jquery-autosize": "^1.18.18"
+    "jquery": "^3.2.1"
   }
 }
