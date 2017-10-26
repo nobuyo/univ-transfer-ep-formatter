@@ -15,4 +15,5 @@
 //= require_tree .
 
 //= require jquery
+//= require jquery-autosize
 //= require cocoon

@@ -47,6 +47,13 @@
       = f.text_field :record_4th, id: :episode_record_4th, placeholder: '例) 5 A'
 
   hr
+  h3 進学を決めたきっかけ・大学の志望理由
+  p どうして進学を志したか、さらに受験した大学を受けると決めたきっかけについてなるべく具体的に記入してください。
+  .form
+    = f.label '進学のきっかけ'
+    = f.text_area :motivation, id: :episode_motivation, class: 'u-full-width', placeholder: '進学や大学志望の理由を具体的に記入してください', required: true
+
+  hr
   h3 大学情報
   p 
     span 受験した大学について入力してください。大学及びその試験科目や参考書などの各要素はボタンを押して数を増減できます。
@@ -81,3 +88,7 @@
 
   .actions
     = f.submit '登録する', class: 'button-primary'
+
+
+javascript:
+  $('textarea').autosize();

@@ -32,3 +32,6 @@
       = render 'subject_fields', f: subject
     .links
       = link_to_add_association "試験科目を追加", f, :subjects, class: 'button'
+
+javascript:
+  $('textarea').autosize();
