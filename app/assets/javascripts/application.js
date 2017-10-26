@@ -14,5 +14,4 @@
 //= require turbolinks
 //= require jquery
 //= require cocoon
-//= require jquery-autosize
 //= require_tree .
