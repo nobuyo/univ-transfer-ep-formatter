@@ -95,6 +95,7 @@ class EpisodesController < ApplicationController
         :record_4th,
         :advise,
         :comment,
+        :motivation,
         univs_attributes: [
           :id,
           :name,

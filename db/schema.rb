@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20171025004711) do
     t.string "record_4th"
     t.text "advise"
     t.text "comment"
+    t.text "motivation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

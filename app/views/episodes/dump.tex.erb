@@ -26,6 +26,13 @@
   \end{tabular}
 \end{tcolorbox}
 
+\subsection{進学のきっかけ・志望理由}
+
+\begin{tcolorbox}[colback=white,title=進学理由]
+\large
+<%= ep.motivation %>
+\end{tcolorbox}
+
 <% ep.univs.each_with_index do |univ, n| %>
 % --- univ ---
 \subsection{<%= "受験大学#{n} #{univ.name}" %>}

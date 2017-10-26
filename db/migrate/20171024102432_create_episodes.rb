@@ -11,6 +11,7 @@ class CreateEpisodes < ActiveRecord::Migration[5.1]
       t.string :record_4th
       t.text :advise
       t.text :comment
+      t.text :motivation
 
       t.timestamps
     end
