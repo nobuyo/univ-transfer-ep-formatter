@@ -12,8 +12,7 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
-
 //= require jquery
-//= require jquery-autosize
 //= require cocoon
+//= require jquery-autosize
+//= require_tree .
