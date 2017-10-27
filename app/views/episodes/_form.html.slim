@@ -54,6 +54,13 @@
     = f.text_area :motivation, id: :episode_motivation, class: 'u-full-width', placeholder: '進学や大学志望の理由を具体的に記入してください', required: true
 
   hr
+  h3 進学先の選び方・探し方
+  p あなたが進学先をどのように探し、決定したのか記入してください
+  .form
+    = f.label '進学先選び'
+    = f.text_area :how_to_choice, id: :episode_how_to_choice, class: 'u-full-width', placeholder: '大学の選び方や探し方を教えて下さい', required: true
+
+  hr
   h3 大学情報
   p 
     span 受験した大学について入力してください。大学及びその試験科目や参考書などの各要素はボタンを押して数を増減できます。
@@ -75,6 +82,22 @@
       = render 'timelineitem_fields', f: timelineitem
     .links
       = link_to_add_association "過程を追加", f, :timelineitems, class: 'button'
+
+  hr
+  h3 先生にした質問とその回答
+  p 受験期に先生から得た情報があればお答えください。
+  #questions
+    = f.fields_for :questions do |question|
+      = render 'question_fields', f: question
+    .links
+      = link_to_add_association "情報を追加", f, :questions, class: 'button'
+
+  hr
+  h3 定期試験の乗り切り方
+  p 受験期にも構わず襲い来る定期試験をどのように乗り越えたのか教えてください
+  .form
+    = f.label '定期試験対策'
+    = f.text_area :how_to_clear_internal_test, id: :episode_how_to_clear_internal_test, class: 'u-full-width', placeholder: '後輩へのアドバイスを記入してください', required: true
 
   hr
   h3 アドバイス・ひとこと

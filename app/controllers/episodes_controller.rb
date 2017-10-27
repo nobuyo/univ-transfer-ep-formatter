@@ -96,6 +96,8 @@ class EpisodesController < ApplicationController
         :advise,
         :comment,
         :motivation,
+        :how_to_choice,
+        :how_to_clear_internal_test,
         univs_attributes: [
           :id,
           :name,
@@ -104,6 +106,7 @@ class EpisodesController < ApplicationController
           :result,
           :exam_info,
           :interview_info,
+          :tendency,
           subjects_attributes: [
             :id,
             :title,
@@ -122,6 +125,11 @@ class EpisodesController < ApplicationController
           :period,
           :studying_time,
           :content
+        ],
+        questions_attributes: [
+          :teacher,
+          :qstn,
+          :answer
         ])
     end
 end

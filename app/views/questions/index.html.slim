@@ -1,0 +1,31 @@
+p#notice
+  = notice
+h1
+  | Questions
+table
+  thead
+    tr
+      th
+        | Teacher
+      th
+        | Qstn
+      th
+        | Answer
+      th[colspan="3"]
+  tbody
+    - @questions.each do |question|
+      tr
+        td
+          = question.teacher
+        td
+          = question.qstn
+        td
+          = question.answer
+        td
+          = link_to 'Show', question
+        td
+          = link_to 'Edit', edit_question_path(question)
+        td
+          = link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Question', new_question_path

@@ -27,6 +27,11 @@
     = f.text_area :interview_info, id: :univ_interview_info, class: 'u-full-width', required: true, placeholder: '面接でされた質問や雰囲気、どのように答えたかや印象などを記入してください'
 
   h5 試験科目
+
+  .form
+    = f.label '傾向と対策'
+    = f.text_area :tendency, id: :univ_tendency, class: 'u-full-width', required: true, placeholder: 'あなたの思う、この大学に対する傾向と対策を記入してください'
+
   #subjects
     = f.fields_for :subjects do |subject|
       = render 'subject_fields', f: subject

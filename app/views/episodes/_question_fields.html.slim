@@ -1,0 +1,17 @@
+.nested-fields.slide-right
+  p.large ○○先生に聞きました
+  .row
+    .four.columns
+      = f.label '聞いた相手'
+      = f.text_field :teacher, id: :question_teacher, class: 'u-full-width', placeholder: '例) 中村先生', required: true
+    .four.columns
+      = link_to_remove_association "この項目を削除", f, class: 'button space-tiny'
+  .field
+    = f.label '質問'
+    = f.text_field :qstn, id: :question_qstn, class: 'u-full-width', placeholder: '質問内容', required: true
+  .field
+    = f.label '答え'
+    = f.text_area :answer, id: :question_answer, class: 'u-full-width', placeholder: 'いただいた回答を記入してください', required: true
+
+javascript:
+  $('textarea').autosize();

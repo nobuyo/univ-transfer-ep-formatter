@@ -33,6 +33,14 @@
 <%= ep.motivation %>
 \end{tcolorbox}
 
+
+\subsection{進学先の選び方・探し方}
+
+\begin{tcolorbox}[colback=white,title=進学先選び]
+\large
+<%= ep.how_to_choice %>
+\end{tcolorbox}
+
 <% ep.univs.each_with_index do |univ, n| %>
 % --- univ ---
 \subsection{<%= "受験大学#{n} #{univ.name}" %>}
@@ -48,6 +56,14 @@
 
 \vspace{-0.4cm}
 \subsubsection{試験科目}
+
+\subsection{傾向と対策}
+ここでの記述は全て投稿者の善意と独断と偏見によって構成されたものであり、出題傾向や範囲を保証するものではありません。
+
+\begin{tcolorbox}[colback=white,title=独断と偏見による傾向と対策]
+\large
+<%= univ.tendency %>
+\end{tcolorbox}
 
 \begin{description}
 % --- subject ---
@@ -103,6 +119,31 @@
 \end{tabular}
 <% end %>
 
+\end{tcolorbox}
+
+<% if ep.questions.present? %>
+  \subsection{〇〇先生に聞きました}
+
+  <% ep.quiestions.each do |item| %>
+  \begin{tcolorbox}[colback=white,title=<%= item.teacher %>]
+  \large
+
+  Q. <%= item.qstn %>
+
+  \vspace{0.4cm}
+  \dotfill
+  \vspace{0.4cm}
+
+  A. <%= item.answer %>
+  \end{tcolorbox}
+  <% end %>
+<% end %>
+
+\subsection{定期試験の乗り切り方}
+
+\begin{tcolorbox}[colback=white,title=試験の乗り越え方]
+\large
+<%= ep.how_to_clear_internal_test %>
 \end{tcolorbox}
 
 \subsection{アドバイス・ひとこと}
