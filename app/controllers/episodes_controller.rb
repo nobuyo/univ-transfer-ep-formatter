@@ -37,7 +37,7 @@ class EpisodesController < ApplicationController
 
     respond_to do |format|
       if @episode.save
-        format.html { redirect_to @episode, notice: 'Episode was successfully created.' }
+        format.html { redirect_to root_path, notice: '正常に投稿されました。ありがとうございました。' }
         format.json { render :show, status: :created, location: @episode }
       else
         format.html { render :new }
