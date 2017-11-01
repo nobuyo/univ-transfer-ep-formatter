@@ -98,6 +98,8 @@ class EpisodesController < ApplicationController
         :motivation,
         :how_to_choice,
         :how_to_clear_internal_test,
+        :toeic_score,
+        :lisence,
         univs_attributes: [
           :id,
           :name,

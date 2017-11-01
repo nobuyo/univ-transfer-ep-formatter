@@ -28,6 +28,12 @@
   .form
     = f.label '進学先'
     = f.text_field :destination, id: :episode_destination, class: 'u-full-width', placeholder: '大学名から専攻まで 例) 筑波大学 情報学群 情報科学類', required: true
+  .form
+    = f.label 'TOEIC/TOEFL'
+    = f.text_field :toeic_score, id: :episode_toeic_score, class: 'u-full-width', placeholder: '650'
+  .form
+    = f.label 'その他資格'
+    = f.text_field :lisence, id: :episode_lisence, class: 'u-full-width', placeholder: '基本情報技術者'
 
   hr
   h3 学内席次

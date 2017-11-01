@@ -13,6 +13,8 @@
   \hfil 学　　科 \hfil & <%= ep.dept %>\\
   \hfil 課外活動 \hfil & <%= ep.activities %>\\
   \hfil 進 学 先 \hfil & <%= ep.destination %> \\
+  \hfil TOEIC/TOEFL \hfil & <%= ep.toeic_score %> \\
+  \hfil 資　　格 \hfil & <%= ep.license || '' %> \\
   \end{tabular}
 \end{tcolorbox}
 
@@ -65,38 +67,40 @@
 <%= univ.tendency %>
 \end{tcolorbox}
 
-\begin{description}
-% --- subject ---
-<% univ.subjects.each do |subject| %>
-\item[　{\Large $\triangleright$}<%= subject.title %>]\mbox{}\\
+<% if univ.subjects.present? %>
+  \begin{description}
+  % --- subject ---
+    <% univ.subjects.each do |subject| %>
+    \item[　{\Large $\triangleright$}<%= subject.title %>]\mbox{}\\
 
-\vspace{-0.4cm}
+    \vspace{-0.4cm}
 
-\begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=勉強法]
-\large
-<%= subject.study_method %>
-\end{tcolorbox}
+    \begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=勉強法]
+    \large
+    <%= subject.study_method %>
+    \end{tcolorbox}
 
-\begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=参考書]
-\large
-\begin{tabular}{p{5cm}p{8.5cm}}
-\hfil 書名(出版社) \hfil & コメント\\
-\end{tabular}
-<% subject.books.each do |book| %>
-\vspace{0.4cm}
-\dotfill
-\vspace{0.4cm}
+    \begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=参考書]
+    \large
+    \begin{tabular}{p{5cm}p{8.5cm}}
+    \hfil 書名(出版社) \hfil & コメント\\
+    \end{tabular}
+      <% subject.books.each do |book| %>
+      \vspace{0.4cm}
+      \dotfill
+      \vspace{0.4cm}
 
-\large
-\begin{tabular}{p{5cm}p{8.5cm}}
-\hfil <%= "#{book.title}(#{book.press})" %> \hfil & <%= book.comment %>\\
-\end{tabular}
+      \large
+      \begin{tabular}{p{5cm}p{8.5cm}}
+      \hfil <%= "#{book.title}(#{book.press})" %> \hfil & <%= book.comment %>\\
+      \end{tabular}
 
+      <% end %>
+    \end{tcolorbox}
+
+    <% end %>
+  \end{description}
 <% end %>
-\end{tcolorbox}
-
-<% end %>
-\end{description}
 
 <% end %>
 % --- timeline ---

@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20171027145139) do
     t.datetime "updated_at", null: false
     t.text "how_to_choice"
     t.text "how_to_clear_internal_test"
+    t.string "toeic_score"
+    t.string "license"
   end
 
   create_table "questions", force: :cascade do |t|
