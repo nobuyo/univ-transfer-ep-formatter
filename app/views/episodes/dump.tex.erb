@@ -14,7 +14,7 @@
   \hfil 課外活動 \hfil & <%= ep.activities %>\\
   \hfil 進 学 先 \hfil & <%= ep.destination %> \\
   \hfil TOEIC   \hfil & <%= ep.toeic_score %> \\
-  \hfil 資　　格 \hfil & <%= ep.license || '' %> \\
+  \hfil 資　　格 \hfil & <%= ep.license || 'なし' %> \\
   \end{tabular}
 \end{tcolorbox}
 
@@ -45,7 +45,7 @@
 
 <% ep.univs.each_with_index do |univ, n| %>
 % --- univ ---
-\subsection{<%= "受験大学#{n} #{univ.name}" %>}
+\subsection{<%= "受験大学#{n+1} #{univ.name}" %>}
 
 \begin{tcolorbox}[colback=white, title=受験情報]
   \large
@@ -58,9 +58,6 @@
 
 \vspace{-0.4cm}
 \subsubsection{試験科目}
-
-\subsubsection{傾向と対策}
-ここでの記述は全て投稿者の善意と独断と偏見によって構成されたものであり、出題傾向や範囲を保証するものではありません。
 
 \begin{tcolorbox}[colback=white,title=独断と偏見による傾向と対策]
 \large
