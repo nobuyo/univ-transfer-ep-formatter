@@ -35,7 +35,6 @@
 <%= ep.motivation %>
 \end{tcolorbox}
 
-
 \subsection{進学先の選び方・探し方}
 
 \begin{tcolorbox}[colback=white,title=進学先選び]
@@ -54,6 +53,16 @@
   \hfil 受験結果 \hfil & <%= univ.result %> \\
   \hfil 試験科目 \hfil & <%= univ.subjects.map{ |s| s.title }.join(', ') %>\\
   \end{tabular}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white,title=試験の内容・手応え・感想]
+\large
+<%= univ.exam_info %>
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white,title=面接の内容・手応え・感想]
+\large
+<%= univ.interview_info %>
 \end{tcolorbox}
 
 \vspace{-0.4cm}
@@ -77,6 +86,8 @@
     <%= subject.study_method %>
     \end{tcolorbox}
 
+    <% if subject.books.present? %>
+
     \begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=参考書]
     \large
     \begin{tabular}{p{5cm}p{8.5cm}}
@@ -94,6 +105,8 @@
 
       <% end %>
     \end{tcolorbox}
+
+    <% end %>
 
     <% end %>
   \end{description}
