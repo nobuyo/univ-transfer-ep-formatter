@@ -48,7 +48,7 @@
 
 \begin{tcolorbox}[colback=white, title=受験情報]
   \large
-  \begin{tabular}{p{2cm}p{4cm}}
+  \begin{tabular}{p{2cm}p{12cm}}
   \hfil 受験方法 \hfil & <%= univ.admission_method %>\\
   \hfil 受験結果 \hfil & <%= univ.result %> \\
   \hfil 試験科目 \hfil & <%= univ.subjects.map{ |s| s.title }.join(', ') %>\\
@@ -77,63 +77,65 @@
   \begin{description}
   % --- subject ---
     <% univ.subjects.each do |subject| %>
-    \item[　{\Large $\triangleright$}<%= subject.title %>]\mbox{}\\
+      \item[　{\Large $\triangleright$}<%= subject.title %>]\mbox{}\\
 
-    \vspace{-0.4cm}
+      \vspace{-0.4cm}
 
-    \begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=勉強法]
-    \large
-    <%= subject.study_method %>
-    \end{tcolorbox}
-
-    <% if subject.books.present? %>
-
-    \begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=参考書]
-    \large
-    \begin{tabular}{p{5cm}p{8.5cm}}
-    \hfil 書名(出版社) \hfil & コメント\\
-    \end{tabular}
-      <% subject.books.each do |book| %>
-      \vspace{0.4cm}
-      \dotfill
-      \vspace{0.4cm}
-
+      \begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=勉強法]
       \large
-      \begin{tabular}{p{5cm}p{8.5cm}}
-      \hfil <%= "#{book.title}(#{book.press})" %> \hfil & <%= book.comment %>\\
-      \end{tabular}
+      <%= subject.study_method %>
+      \end{tcolorbox}
 
+      <% if subject.books.present? %>
+        \begin{tcolorbox}[colbacktitle=white, coltitle=black, colback=white,title=参考書]
+        \large
+        \begin{tabular}{p{5cm}p{8.5cm}}
+        \hfil 書名(出版社) \hfil & コメント\\
+        \end{tabular}
+          <% subject.books.each do |book| %>
+          \vspace{0.4cm}
+          \dotfill
+          \vspace{0.4cm}
+
+          \large
+          \begin{tabular}{p{5cm}p{8.5cm}}
+          \hfil <%= "#{book.title}(#{book.press})" %> \hfil & <%= book.comment %>\\
+          \end{tabular}
+
+          <% end %>
+        \end{tcolorbox}
       <% end %>
-    \end{tcolorbox}
-
-    <% end %>
-
     <% end %>
   \end{description}
 <% end %>
 
 <% end %>
-% --- timeline ---
-\subsection{勉強の過程}
 
-\begin{tcolorbox}[colback=white,title=勉強年表]
-\large
-\begin{tabular}{p{2.5cm}p{2cm}p{8.5cm}}
-\hfil 時期 \hfil& 時間$\rm /$日 & 内容\\
-\end{tabular}
+<% if ep.timelineitems.present? %>
 
-<% ep.timelineitems.each_with_index do |item, idx| %>
-\vspace{0.4cm}
-\hrule height 0.6pt
-\vspace{0.4cm}
+  % --- timeline ---
+  \subsection{勉強の過程}
 
-\large
-\begin{tabular}{p{2.5cm}p{2cm}p{8.5cm}}
-\hfil <%= "#{item.grade}年#{item.period}" %> \hfil& <%= item.studying_time %> & <%= item.content %>\\
-\end{tabular}
+  \begin{tcolorbox}[colback=white,title=勉強年表]
+  \large
+  \begin{tabular}{p{2.5cm}p{2cm}p{8.5cm}}
+  \hfil 時期 \hfil& 時間$\rm /$日 & 内容\\
+  \end{tabular}
+
+  <% ep.timelineitems.each_with_index do |item, idx| %>
+  \vspace{0.4cm}
+  \hrule height 0.6pt
+  \vspace{0.4cm}
+
+  \large
+  \begin{tabular}{p{2.5cm}p{2cm}p{8.5cm}}
+  \hfil <%= "#{item.grade}年#{item.period}" %> \hfil& <%= item.studying_time %> & <%= item.content %>\\
+  \end{tabular}
+  <% end %>
+
+  \end{tcolorbox}
+
 <% end %>
-
-\end{tcolorbox}
 
 <% if ep.questions.present? %>
   \subsection{〇〇先生に聞きました}
