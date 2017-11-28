@@ -14,10 +14,10 @@
   .row
     .four.columns
       = f.label '選抜方法'
-      = f.select :admission_method, options_for_select([['学力', '学力'], ['推薦', '推薦']]), { prompt: '選択してください' }, { class: 'u-full-width', required: true }
+      = f.select :admission_method, [['学力', '学力'], ['推薦', '推薦']], { prompt: '選択してください' }, { id: :univ_admission_method,class: 'u-full-width', required: true }
     .four.columns
       = f.label '合否'
-      = f.select :result, options_for_select([['合格', '合格'], ['不合格', '不合格'], ['未受験', '未受験']]), { prompt: '選択してください' }, { class: 'u-full-width', required: true }
+      = f.select :result, [['合格', '合格'], ['不合格', '不合格'], ['未受験', '未受験']], { prompt: '選択してください' }, { id: :univ_result, class: 'u-full-width', required: true }
 
   .form
     = f.label '試験の内容・手応え・感想'
